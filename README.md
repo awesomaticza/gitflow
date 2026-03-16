@@ -1,5 +1,11 @@
 # GitFlow Branching and Release Strategy
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/docs-awesomaticza.github.io%2Fgitflow-blue)](https://awesomaticza.github.io/gitflow/)
+[![Shell](https://img.shields.io/badge/shell-bash-4EAA25?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Requires: gh](https://img.shields.io/badge/requires-gh%20CLI-0075FF?logo=github)](https://cli.github.com/)
+[![Requires: Maven](https://img.shields.io/badge/requires-Maven-C71A36?logo=apachemaven&logoColor=white)](https://maven.apache.org/)
+
 ## Introduction
 The GitFlow branching strategy is a powerful and successful model for managing software releases and development. This workflow defines a strict but flexible branching model designed around the project release.  
 
@@ -46,7 +52,7 @@ Hotfix Workflow
 
 ## Architecture Overview
 
-A complete GitFlow automation stack for a service is assembled from two complementary repositories, each added to the consumer project in a different way.
+A complete GitFlow automation stack for a service is assembled from two complementary repositories, each consumed by a project in a different way.
 
 ```mermaid
 flowchart TD
@@ -55,20 +61,25 @@ flowchart TD
 
     GF["gitflow<br/>├─ Makefile<br/>└─ scripts<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ hotfix.sh<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ release.sh"]
 
+    GW["github-workflows<br/>└─ .github/workflows<br/>&nbsp;&nbsp;&nbsp;├─ build.yml<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ release.yml"]
+
     LIB --"Add as Git Submodule"--> GF
     DEP --"Add as Git Submodule"--> GF
+    GW -."Reuse via workflow_call".-> LIB
+    GW -."Reuse via workflow_call".-> DEP
 
     classDef sharedrepo fill:#1a2e4a,stroke:#1a2e4a,color:#ffffff
     classDef consumer fill:#f0f0f0,stroke:#888888,color:#222222
 
-    class GF sharedrepo
+    class GF,GW sharedrepo
     class LIB,DEP consumer
 ```
 GitFlow Automation Architecture
 
-- **`gitflow`** (this repository) provides the local developer-side automation — the `Makefile` and scripts that handle branch creation, version bumping, and PR creation from a developer's machine.
+- **`gitflow`** (this repository) provides the **developer-side automation** — the `Makefile` and scripts that handle branch creation, version bumping, and PR creation from a developer's machine.
+- **`github-workflows`** provides the **server-side CI/CD automation** — reusable GitHub Actions workflows (`build.yml`, `release.yml`) that consumer projects reference via `workflow_call`. See [github-workflows →](https://github.com/awesomaticza/github-workflows)
 
-Consumer projects add `gitflow` as a git submodule in the `.gitflow/` folder. The developer triggers a release or hotfix locally, and GitHub Actions takes over once the PR lands on `master`.
+Consumer projects wire in both: `gitflow` as a git submodule in `.gitflow/`, and `github-workflows` referenced directly from their own `.github/workflows/*.yml` files. Together the two repos cover the full lifecycle — the developer triggers a release or hotfix locally, and GitHub Actions takes over once the PR lands on `master`, publishing artifacts, tagging the release, and back-merging to `develop` automatically.
 
 ## How the Scripts Work
 

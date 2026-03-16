@@ -41,14 +41,21 @@ flowchart TD
 
     GF["gitflow<br/>├─ Makefile<br/>└─ scripts<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ hotfix.sh<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ release.sh"]
 
+    GW["github-workflows<br/>└─ .github/workflows<br/>&nbsp;&nbsp;&nbsp;├─ build.yml<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ release.yml"]
+
     LIB --"Add as Git Submodule"--> GF
     DEP --"Add as Git Submodule"--> GF
+    GW -."Reuse via workflow_call".-> LIB
+    GW -."Reuse via workflow_call".-> DEP
 
     classDef sharedrepo fill:#1a2e4a,stroke:#1a2e4a,color:#ffffff
     classDef consumer fill:#f0f0f0,stroke:#888888,color:#222222
 
-    class GF sharedrepo
+    class GF,GW sharedrepo
     class LIB,DEP consumer
 ```
 
-Consumer projects add `gitflow` as a git submodule in the `.gitflow/` folder. The developer triggers a release or hotfix locally, and GitHub Actions takes over once the PR lands on `master`.
+Consumer projects wire in both repos:
+
+- **`gitflow`** (this repository) — add as a git submodule in `.gitflow/`. The developer runs `make release` or `make hotfix` locally to create a branch and open a PR.
+- **[github-workflows](https://awesomaticza.github.io/github-workflows/)** — reusable GitHub Actions workflows referenced from the consumer project's own `.github/workflows/*.yml`. Once the PR lands on `master`, GitHub Actions publishes artifacts, tags the release, and opens a back-merge PR into `develop` automatically.

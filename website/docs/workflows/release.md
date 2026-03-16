@@ -50,7 +50,11 @@ make release COMMIT_HASH=abc1234
 
 ## After the PR Merges
 
-Once the release PR merges into `master`, a GitHub Actions workflow creates a back-merge PR into `develop` automatically.
+Once the release PR merges into `master`, the `merge-2-develop` step in [github-workflows](https://github.com/awesomaticza/github-workflows/.github/workflows/release.yml) script takes over and does the following:
+
+1. **Publishes the release artifact** — either to AWS CodeArtifact (libraries) or AWS ECR as a Docker image (deployable services).
+2. **Creates a git tag and GitHub Release** for the version in `pom.xml`.
+3. **Opens a back-merge PR** (`merge/x.y.z → develop`) and bumps the minor version for the next development sprint (e.g. `1.2.0` → `1.3.0-SNAPSHOT`).
 
 :::warning Don't skip the back-merge
 **Approving the back-merge PR is not optional.** If you skip it, `develop` falls behind `master` — the release version bump and any release-branch fixes are lost from the development line. The next release will be cut from stale code, and `develop` will silently diverge from what is running in production.

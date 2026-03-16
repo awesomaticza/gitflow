@@ -99,7 +99,7 @@ Add the following to your `pom.xml` so the submodule is checked out and kept up 
 </build>
 ```
 
-### Skip the Submodule Update on CI
+### Skip the Submodule Update on CI Builds
 
 On a build server the submodule is already checked out by the CI system. Add this profile to suppress the `git submodule update` during CI builds:
 

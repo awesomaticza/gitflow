@@ -51,7 +51,11 @@ make hotfix
 
 ## After the PR Merges
 
-Once the hotfix PR merges into `master`, a GitHub Actions workflow creates a back-merge PR into `develop` automatically.
+Once the hotfix PR merges into `master`, the `merge-2-develop` step in [github-workflows](https://github.com/awesomaticza/github-workflows/.github/workflows/release.yml) script takes over and does the following:
+
+1. **Publishes the hotfix artifact** — either to AWS CodeArtifact (libraries) or AWS ECR as a Docker image (deployable services).
+2. **Creates a git tag and GitHub Release** for the hotfix version in `pom.xml`.
+3. **Opens a back-merge PR** (`merge/x.y.z → develop`). Because this is a hotfix (patch version > 0), the version in `pom.xml` is **not** bumped — `develop` retains its current SNAPSHOT version.
 
 :::warning Don't skip the back-merge
 **Approving the back-merge PR is not optional.** If you skip it, the hotfix exists only in `master` — `develop` never receives the fix. The bug you just patched in production will reappear in the next release, and you will have no idea why.
