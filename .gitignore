@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+
+# Docusaurus generated output
+website/build/
+website/.docusaurus/
+website/.cache-loader/
