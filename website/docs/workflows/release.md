@@ -50,7 +50,7 @@ make release COMMIT_HASH=abc1234
 
 ## After the PR Merges
 
-Once the release PR merges into `master`, the `merge-2-develop` step in [github-workflows](https://github.com/awesomaticza/github-workflows/.github/workflows/release.yml) script takes over and does the following:
+Once the release PR merges into `master`, the `merge-2-develop` step in [github-workflows](https://github.com/awesomaticza/github-workflows/blob/master/.github/workflows/release.yml) release script takes over and does the following:
 
 1. **Publishes the release artifact** — either to AWS CodeArtifact (libraries) or AWS ECR as a Docker image (deployable services).
 2. **Creates a git tag and GitHub Release** for the version in `pom.xml`.
