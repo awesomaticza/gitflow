@@ -114,6 +114,6 @@ Run from the **`master`** branch via `make hotfix`.
 > NOTE: After either PR merges into `master`, a GitHub Actions workflow creates a back-merge PR into `develop` automatically.
 
 ## References
-1. [Building an automatic CI/CD using Gitflow with GitHub Actions, Buildpack, Artifact Registry and Workload Identity Federation (12/17)](https://medium.com/@jojoooo/building-an-automatic-ci-cd-using-gitflow-with-github-actions-buildpack-artifact-registry-and-43312196cbd8)
 1. [Branching Strategy Explained: Choosing the Right Workflow for Your Team](https://medium.com/towards-aws/branching-strategy-explained-choosing-the-right-workflow-for-your-team-2d9df91b3a70)
 2. [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+3. [Building an automatic CI/CD using Gitflow with GitHub Actions, Buildpack, Artifact Registry and Workload Identity Federation (12/17)](https://medium.com/@jojoooo/building-an-automatic-ci-cd-using-gitflow-with-github-actions-buildpack-artifact-registry-and-43312196cbd8)
