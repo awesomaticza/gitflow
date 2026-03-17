@@ -64,6 +64,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://awesomaticza.github.io/github-workflows/',
+          label: 'github-workflows →',
+          position: 'right',
+        },
       ],
     },
     footer: {
