@@ -57,5 +57,5 @@ flowchart TD
 
 Consumer projects wire in both repos:
 
-- **`gitflow`** (this repository) — add as a git submodule in `.gitflow/`. The developer runs `make release` or `make hotfix` locally to create a branch and open a PR.
+- **`gitflow`** - add this [repository](https://github.com/awesomaticza/gitflow) as a git submodule in root folder of the consumer project. To initiate the process, developers execute `make release` or `make hotfix` locally, which creates the corresponding branch and opens a PR all in one step.
 - **[github-workflows](https://awesomaticza.github.io/github-workflows/)** — reusable GitHub Actions workflows referenced from the consumer project's own `.github/workflows/*.yml`. Once the PR lands on `master`, GitHub Actions publishes artifacts, tags the release, and opens a back-merge PR into `develop` automatically.
