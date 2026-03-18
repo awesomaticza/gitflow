@@ -76,10 +76,10 @@ flowchart TD
 ```
 GitFlow Automation Architecture
 
-- **`gitflow`** (this repository) provides the **developer-side automation** — the `Makefile` and scripts that handle branch creation, version bumping, and PR creation from a developer's machine.
-- **`github-workflows`** provides the **server-side CI/CD automation** — reusable GitHub Actions workflows (`build.yml`, `release.yml`) that consumer projects reference via `workflow_call`. See [github-workflows →](https://github.com/awesomaticza/github-workflows)
+- [gitflow](https://awesomaticza.github.io/gitflow/) (this repository) provides the **developer-side automation** — the `Makefile` and scripts that handle releases, hot fixes, branch creation, version bumping, and PR creation from a developer's machine.
+- [github-workflows](https://awesomaticza.github.io/github-workflows/) provides the **server-side CI/CD automation** — reusable GitHub Actions workflows (`build.yml`, `release.yml`) that consumer projects reference via `workflow_call`. See [github-workflows](https://github.com/awesomaticza/github-workflows)
 
-Consumer projects wire in both: `gitflow` as a git submodule in `.gitflow/`, and `github-workflows` referenced directly from their own `.github/workflows/*.yml` files. Together the two repos cover the full lifecycle — the developer triggers a release or hotfix locally, and GitHub Actions takes over once the PR lands on `master`, publishing artifacts, tagging the release, and back-merging to `develop` automatically.
+Consumer projects wire in both: `gitflow` as a git submodule in `.gitflow/`, and `github-workflows` referenced directly from their own files in the `.github/workflows` folder. Together the two repos cover the full lifecycle — the developer triggers a release or hotfix locally, and GitHub Actions takes over once the PR lands on `master`, publishing artifacts, tagging the release, and back-merging to `develop` automatically.
 
 ## How the Scripts Work
 
