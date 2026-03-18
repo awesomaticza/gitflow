@@ -51,7 +51,7 @@ make hotfix
 
 ## After the PR Merges
 
-Once the hotfix PR merges into `master`, the `merge-2-develop` step in [github-workflows](https://github.com/awesomaticza/github-workflows/blob/master/.github/workflows/release.yml) release script takes over and does the following:
+Once the hotfix PR merges into `master`, the [github-workflows](https://github.com/awesomaticza/github-workflows/blob/master/.github/workflows/release.yml) release script takes over and does the following:
 
 1. **Publishes the hotfix artifact** — either to AWS CodeArtifact (libraries) or AWS ECR as a Docker image (deployable services).
 2. **Creates a git tag and GitHub Release** for the hotfix version in `pom.xml`.
