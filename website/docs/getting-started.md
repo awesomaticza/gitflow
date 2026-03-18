@@ -36,7 +36,7 @@ This creates a `.gitflow/` folder containing the scripts and Makefile.
 
 ## Step 2 — Create the Root `Makefile`
 
-Create (or update) the `Makefile` in your project root to include the submodule's targets:
+Create a `Makefile` that delegates the commands to the submodule's `Makefile`.
 
 ```makefile
 GITFLOW_DIR := .gitflow
@@ -45,7 +45,7 @@ include $(GITFLOW_DIR)/Makefile
 
 ## Step 3 — Configure Maven to Initialise the Submodule
 
-Add the following to your `pom.xml` so the submodule is checked out and kept up to date during `mvn validate`:
+Add the following to your `pom.xml` so the submodule is checked out and kept up to date:
 
 ```xml
 <build>
@@ -139,6 +139,12 @@ git commit -a -m "add gitflow as a submodule"
 
 ```bash
 make help
+
+Usage:
+  make 
+  help             Show this help message.
+  release          Create release
+  hotfix           Create hotfix
 ```
 
 Expected output lists the `release` and `hotfix` targets.
