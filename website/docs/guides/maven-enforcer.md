@@ -94,7 +94,7 @@ Both `release.sh` and `hotfix.sh` contain this guard:
 
 ```bash
 if mvn help:all-profiles -q 2>/dev/null | grep -q "enforce-no-snapshots"; then
-  mvn enforcer:enforce -Penforce-no-snapshots -Pbuild --no-transfer-progress
+  mvn validate -Penforce-no-snapshots -Pbuild --no-transfer-progress
 else
   # Profile not present — warn and continue
   echo "WARNING: 'enforce-no-snapshots' profile not found — skipping SNAPSHOT check"
