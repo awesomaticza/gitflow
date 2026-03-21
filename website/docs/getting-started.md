@@ -26,13 +26,19 @@ Follow the prompts: select `GitHub.com`, `SSH` protocol, and `Login with a web b
 
 ## Step 1 — Add the Git Submodule
 
+:::warning Use your own fork
+The SSH URL below points to the `awesomaticza/gitflow` repository. Adding it directly as a submodule will fail unless your SSH key is authorised on that repository.
+
+**Fork [awesomaticza/gitflow](https://github.com/awesomaticza/gitflow) into your own GitHub account or organisation first**, then substitute your fork's SSH URL in the command below. This way you own the submodule and can push changes freely.
+:::
+
 From the root of your project:
 
 ```bash
-git submodule add git@github.com:awesomaticza/gitflow.git .gitflow
+git submodule add git@github.com:<your-org>/gitflow.git .gitflow
 ```
 
-This creates a `.gitflow/` folder containing the scripts and Makefile.
+This creates a `.gitflow/` folder that contains the scripts and Makefile.
 
 ## Step 2 — Create the Root `Makefile`
 
