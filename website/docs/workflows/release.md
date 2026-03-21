@@ -57,7 +57,7 @@ Once the release PR merges into `master`, the `github-workflows` [release script
 3. **Opens a back-merge PR** (`merge/x.y.z → develop`) and bumps the minor version for the next development sprint (e.g. `1.2.0` → `1.3.0-SNAPSHOT`).
 
 :::warning Don't skip the back-merge
-**Approving the back-merge PR is not optional.** If you skip it, `develop` falls behind `master` — the release version bump and any release-branch fixes are lost from the development line. The next release will be cut from stale code, and `develop` will silently diverge from what is running in production.
+**Approving the back-merge PR is not optional.** If you skip it, the version bump never lands in `develop` — it will stay at the old SNAPSHOT (e.g. `1.2.0-SNAPSHOT`) instead of advancing to the next one (e.g. `1.3.0-SNAPSHOT`). The next release will be cut from the wrong version.
 
 **Always merge the back-merge PR before starting any new feature work.**
 :::
