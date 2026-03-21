@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # gitflow
 
-`gitflow` is a **developer-side automation toolkit** for the GitFlow branching and release strategy. It provides two interactive shell scripts — `release.sh` and `hotfix.sh` — that handle branch creation, version bumping, and pull request creation from a developer's machine.
+`gitflow` is a **developer-side automation toolkit** for the GitFlow branching and release strategy. It provides two interactive shell scripts — `release.sh` and `hotfix.sh` — that handle releases, hot fixes, branch creation, version bumping, and pull request creation from a developer's machine.
 
 Add it as a **git submodule** to any Maven project and you can run a full release or hotfix with a single `make` command.
 
