@@ -119,9 +119,18 @@ On a build server the submodule is already checked out by the CI system. Add thi
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
           <executions>
-            <execution><id>update-submodules</id><phase>none</phase></execution>
-            <execution><id>make-hotfix-executable</id><phase>none</phase></execution>
-            <execution><id>make-release-executable</id><phase>none</phase></execution>
+            <execution>
+              <id>update-submodules</id>
+              <phase>none</phase>
+            </execution>
+            <execution>
+              <id>make-hotfix-executable</id>
+              <phase>none</phase>
+            </execution>
+            <execution>
+              <id>make-release-executable</id>
+              <phase>none</phase>
+            </execution>
           </executions>
         </plugin>
       </plugins>
