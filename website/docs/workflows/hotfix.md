@@ -58,7 +58,7 @@ Once the hotfix PR merges into `master`, the `github-workflows` [release script]
 3. **Opens a back-merge PR** (`merge/x.y.z → develop`). Because this is a hotfix (patch version > 0), the version in `pom.xml` is **not** bumped — `develop` retains its current SNAPSHOT version.
 
 :::warning Don't skip the back-merge
-**Approving the back-merge PR is not optional.** If you skip it, the hotfix exists only in `master` — `develop` never receives the fix. The bug you just patched in production will reappear in the next release, and you will have no idea why.
+**Approving the back-merge PR is not optional.** If you skip it, the hotfix exists only in `master` — `develop` never receives the fix. The bug you just patched in production will reappear in the next release.
 
 **Always merge the back-merge PR before resuming feature development.**
 :::
