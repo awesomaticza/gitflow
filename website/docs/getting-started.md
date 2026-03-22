@@ -6,7 +6,7 @@ sidebar_position: 2
 
 # Getting Started
 
-This guide walks you through adding `gitflow` to a Maven project from scratch.
+This guide walks you through on how to add `gitflow` to a Maven project from scratch.
 
 ## Prerequisites
 
@@ -139,7 +139,7 @@ On a build server the submodule is already checked out by the CI system. Add thi
 </profiles>
 ```
 
-Activate it in CI:
+Activate it in the CI build:
 ```bash
 mvn clean package -Pbuild
 ```
