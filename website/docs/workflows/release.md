@@ -53,7 +53,7 @@ make release COMMIT_HASH=abc1234
 Once the release PR merges into `master`, the `github-workflows` [release script](https://github.com/awesomaticza/github-workflows/blob/master/.github/workflows/release.yml) takes over and does the following:
 
 1. **Publishes the release artifact** — either to AWS CodeArtifact (libraries) or AWS ECR as a Docker image (deployable services).
-2. **Creates a git tag and GitHub Release** for the version in `pom.xml`.
+2. **Creates a git tag and GitHub Release** for the release version.
 3. **Opens a back-merge PR** (`merge/x.y.z → develop`) and bumps the minor version for the next development sprint (e.g. `1.2.0` → `1.3.0-SNAPSHOT`).
 
 :::warning Don't skip the back-merge
