@@ -6,6 +6,13 @@ on:
     paths: ['website/**']
   workflow_dispatch:
 
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
