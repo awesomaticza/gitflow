@@ -13,7 +13,7 @@ This guide walks you through on how to add `gitflow` to a Maven project from scr
 | Tool | Purpose | Install |
 |------|---------|---------|
 | `gh` | GitHub CLI — creates PRs automatically | [Install GitHub CLI](https://cli.github.com/) |
-| `make` | Delegates commands to the submodule | `brew install make` / `apt install make` / `winget install --id GitHub.cli` |
+| `make` | Delegates commands to the submodule | `brew install make` / `apt install make` / `winget install GnuWin32.Make` |
 | `mvn` | Maven — reads and writes the project version | [Install Maven](https://maven.apache.org/install.html) |
 
 ### Authenticate GitHub CLI
