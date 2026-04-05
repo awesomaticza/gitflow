@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docs](https://img.shields.io/badge/docs-awesomaticza.github.io%2Fgitflow-blue)](https://awesomaticza.github.io/gitflow/)
+[![Deploy Docs](https://github.com/awesomaticza/gitflow/actions/workflows/deploy-website.yml/badge.svg)](https://github.com/awesomaticza/gitflow/actions/workflows/deploy-website.yml)
 [![Shell](https://img.shields.io/badge/shell-bash-4EAA25?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![Requires: gh](https://img.shields.io/badge/requires-gh%20CLI-0075FF?logo=github)](https://cli.github.com/)
 [![Requires: Maven](https://img.shields.io/badge/requires-Maven-C71A36?logo=apachemaven&logoColor=white)](https://maven.apache.org/)
