@@ -49,7 +49,21 @@ GITFLOW_DIR := .gitflow
 include $(GITFLOW_DIR)/Makefile
 ```
 
-## Step 3 — Configure Maven to Initialise the Submodule
+## Step 3 — Verify
+
+```bash
+make help
+
+Usage:
+  make 
+  help             Show this help message.
+  release          Create release
+  hotfix           Create hotfix
+```
+
+Expected output lists the `release` and `hotfix` targets.
+
+## Step 4 — Configure Maven to Initialise the Submodule
 
 Add the following to your `pom.xml` so the submodule is checked out and kept up to date:
 
@@ -144,22 +158,8 @@ Activate it in the CI build:
 mvn clean package -Pbuild
 ```
 
-## Step 4 — Commit
+## Step 5 — Commit
 
 ```bash
 git commit -a -m "add gitflow as a submodule"
 ```
-
-## Step 5 — Verify
-
-```bash
-make help
-
-Usage:
-  make 
-  help             Show this help message.
-  release          Create release
-  hotfix           Create hotfix
-```
-
-Expected output lists the `release` and `hotfix` targets.
