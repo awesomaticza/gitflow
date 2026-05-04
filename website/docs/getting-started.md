@@ -126,7 +126,7 @@ On a build server the submodule is already checked out by the CI system. Add thi
 ```xml
 <profiles>
   <profile>
-    <id>build</id>
+    <id>ci-build</id>
     <build>
       <plugins>
         <plugin>
@@ -155,7 +155,7 @@ On a build server the submodule is already checked out by the CI system. Add thi
 
 Activate it in the CI build:
 ```bash
-mvn clean package -Pbuild
+mvn clean package -Pci-build
 ```
 
 ## Step 5 — Commit

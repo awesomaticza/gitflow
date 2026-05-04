@@ -70,7 +70,7 @@ getHotfixReleaseVersion
 
 message ">>> Checking for SNAPSHOT dependencies"
 if mvn help:all-profiles 2>/dev/null | grep -q "enforce-no-snapshots"; then
-  mvn validate -Penforce-no-snapshots -Pbuild --no-transfer-progress
+  mvn validate -Penforce-no-snapshots -Pci-build --no-transfer-progress
   message ">>> No SNAPSHOT dependencies found"
 else
   message ">>> WARNING: 'enforce-no-snapshots' Maven profile not found — skipping SNAPSHOT dependency check"
