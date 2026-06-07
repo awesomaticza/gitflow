@@ -25,9 +25,9 @@ GitFlow Workflow
 
 Repeat the above steps multiple times.
 
-### QA Environment - Release Candidate
+### Test Environment - Release Candidate
 - 4. Create branch `release/1.1.0` from `develop`.
-- 5. Open PR from `release/1.1.0` into master -> _CI runs tests and, depending on your model deploys to the QA environment._
+- 5. Open PR from `release/1.1.0` into master -> _CI runs tests and, depending on your model deploys to the UAT environment._
 
 ### Prod Environment
 - 6. Close and merge PR -> _CI pushes artifact to registry and, depending on your model deploys to the Production environment._
